@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body {
+            min-height: 100vh;
+            background-color: #eee;
+            margin: 0;
+            --sans-serif: -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;;
+        }
+
+        .circle {
+            width: 3em;
+            height: 3em;
+            background-color: steelblue;
+            border-radius: 100%; /*Read up from MDN for border radius*/
+
+            position: fixed;
+            transition: all 100ms ease;
+        }
+
+        main {
+            padding-top: 20em;
+            position: relative;
+        }
+    </style>
+    <script src="dom-events.js" type="application/javascript"></script>
+</head>
+<body>
+<main>
+    <div>
+        <ul>
+            <li>Static</li>
+            <li>
+                Relative
+                <ul>
+                    <li>It preserves the whitespace of the element</li>
+                    <li>It positions (top, left) <strong>based on it's original position</strong></li>
+                </ul>
+            </li>
+            <li>Absolute
+                <ul>
+                    <li>It does not preserve the whitespace of the element.</li>
+                    <li>It positions itself with respect to the nearest <strong>non-static ancestor</strong></li>
+                </ul>
+            </li>
+            <li>Fixed
+                <ul>
+                    <li>It does not preserve the whitespace of the element.</li>
+                    <li>It positions itself with respect to the <strong>viewport</strong></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</main>
+</body>
+</html>

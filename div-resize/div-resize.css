@@ -1,0 +1,24 @@
+#box {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    background-color: lightcoral;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius: 10px;
+}
+
+#handle {
+    background-color: #727272;
+    width: 10px;
+    height: 10px;
+    cursor: se-resize;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+}
+
+/*body {*/
+    /*min-height: 100vh;*/
+/*}*/

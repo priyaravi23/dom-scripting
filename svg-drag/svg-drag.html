@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body {
+            min-height: 100vh;
+            background-color: #eee;
+            margin: 0;
+            --sans-serif: -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;;
+        }
+
+        .circle {
+            width: 3em;
+            height: 3em;
+            background-color: steelblue;
+            border-radius: 100%;
+
+            position: fixed;
+            transition: all 100ms ease;
+        }
+
+        main {
+            padding-top: 20em;
+            position: relative;
+        }
+    </style>
+    <script src="svg-drag.js" type="application/javascript"></script>
+</head>
+<body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+         width="500" height="200" style="border: solid 2px grey" transform="translate(50,50)">
+        <rect x="0" y="0" height="200" width="500" fill="steelblue" />
+        <defs>
+            <radialGradient id="gradient">
+                <stop offset="10%" stop-color="lightcoral"/>
+                <stop offset="95%" stop-color="crimson"/>
+            </radialGradient>
+        </defs>
+        <circle fill="url(#gradient)" cx="50" cy="50" r="30" pointer-events="visiblePoint" onclick="alert('circle')"/>
+    </svg>
+
+    <svg height="210" width="200" transform="translate(100,50)" style="border: solid 2px grey">
+        <polygon points="100,10 40,198 190,78 10,78 160,198"
+                 style="fill:cyan;stroke:cadetblue;stroke-width:2;fill-rule:evenodd;" />
+    </svg>
+
+<main>
+
+</main>
+</body>
+</html>
