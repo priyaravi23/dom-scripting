@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            font: 400 1em 'Helvetica Neue';
+            margin: 0
+        }
+    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="users.css">
+    <script type="application/javascript" src="users.js"></script>
+</head>
+<body>
+    <main>
+        <section class="instructions">
+            <ul>
+                <li>Create a user given the appropriate inputs</li>
+                <li>The user should be displayed in the list of users section below.</li>
+                <li>Upon clicking the header for the list, e.g. <pre>First Name (asc)</pre>,
+                    it should toggle the order of items based on that property and lead to
+                    <pre>First Name (desc)</pre>. Clicking it again will order the items in
+                    ascending order based on firstName and change the header to <pre>First Name (asc)</pre>
+                </li>
+                <li>
+                    Write out your js and css files and refer to them here.
+                </li>
+            </ul>
+        </section>
+        <section class="create-user">
+            <header>
+                Create User
+            </header>
+            <div>
+                <input value="BP" type="text">
+                <input value="Mishra" type="text">
+                <input value="2019-03-09" type="date">
+                <button>Create User</button>
+            </div>
+        </section>
+        <section class="list-users">
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name (asc)</th>
+                        <th>Last Name (asc)</th>
+                        <th>Date of Birth (asc)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data rows tr and td go here -->
+                <!--<tr>
+                    <td>Bree</td>
+                    <td>Grizzell</td>
+                    <td>23 Nov 2344</td>
+                </tr>-->
+                </tbody>
+            </table>
+            <header>
+                <div>
+                    <div>First Name (asc)</div>
+                    <div>Last Name (asc)</div>
+                    <div>Date Of Birth (asc)</div>
+                </div>
+            </header>
+            <div>
+                // Data goes here ..
+            </div>
+        </section>
+    </main>
+</body>
+</html>

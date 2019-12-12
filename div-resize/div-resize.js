@@ -7,33 +7,37 @@ document.addEventListener('readystatechange', () => {
 function init() {
     let box = document.getElementById('box');
     let resizeHandle = document.getElementById('handle');
-    let isMouseDown = false;
-    console.log(box, isMouseDown, resizeHandle);
 
-    document.body.addEventListener('mousedown', () => {
-        isMouseDown = true;
-    });
+    resizeHandle.addEventListener('mousedown', initialiseResize, false);
 
-    document.body.addEventListener('mouseup', () => {
-        isMouseDown = false;
-    });
+    function initialiseResize(e) {
+        window.addEventListener('mousemove', startResizing, false);
+        window.addEventListener('mouseup', stopResizing, false);
+    }
 
-    document.body.addEventListener('mousemove', (e) => {
-        if (isMouseDown) {
-            console.log(e.clientX, e.clientY);
-        }
-    });
+    function startResizing(e) {
+        box.style.width = (e.clientX - box.offsetLeft) + 'px';
+        box.style.height = (e.clientY - box.offsetTop) + 'px';
+    }
+    function stopResizing(e) {
+        window.removeEventListener('mousemove', startResizing, false);
+        window.removeEventListener('mouseup', stopResizing, false);
+    }
 
-    resizeHandle.addEventListener('mousedown', () => {
-        document.body.addEventListener('mousemove', (e) => {
-            box.style.width = (e.clientX - box.offsetLeft) + 'px';
-            box.style.height = (e.clientY - box.offsetTop) + 'px';
-        });
-
-        // document.body.addEventListener('mouseup', (e) => {
-        //     document.body.removeEventListener('mousemove');
-        //     document.body.removeEventListener('mouseup');
-        // });
-
-    });
+    // let isMouseDown = false;
+    // console.log(box, isMouseDown, resizeHandle);
+    //
+    // document.body.addEventListener('mousedown', () => {
+    //     isMouseDown = true;
+    // });
+    //
+    // document.body.addEventListener('mouseup', () => {
+    //     isMouseDown = false;
+    // });
+    //
+    // document.body.addEventListener('mousemove', (e) => {
+    //     if (isMouseDown) {
+    //         console.log(e.clientX, e.clientY);
+    //     }
+    // });
 }
