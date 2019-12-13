@@ -1,48 +1,38 @@
-const createCircle = () => {
-    // createElement to create a div that has a className of circle
-    const left = 0;
-    const top = 0;
-    const circle = createElement({
-        className: 'circle',
-        elemType: 'div',
-        attributes: [{
-            name: 'style',
-            value: `left: ${left}px; top: ${top}px;`
-        }]
-    });
-    const parentNode = document.body.firstElementChild;
-    const refNode = parentNode.firstElementChild;
-    parentNode.insertBefore(circle, refNode);
-    return circle;
-};
-
-const createElement = props => {
-    const {className, elemType, handlers, attributes = []} = props;
-    const element = document.createElement(elemType);
-    element.setAttribute('class', className);
-    attributes.forEach(({name, value}) => {
-        element.setAttribute(name, value);
-    });
-    return element;
-};
-
-
-window.addEventListener('mouseup', (e) => {
-    // pick a random color between #000000 and #FFFFFF
-    const color = Math.round(Math.random() * 0xFFFFFF)
-    const fill = '#' + color.toString(16).padStart(6,'0')
-
-    // apply color to the element that is clicked
-    e.target.style.fill = fill
-})
-
-window.addEventListener("mousemove", function(event) {
-    myFunction(event);
+document.addEventListener('readystatechange', () => {
+    if (document.readyState === 'interactive') {
+        init();
+    }
 });
 
-function myFunction(e) {
-    var x = e.clientX;
-    var y = e.clientY;
-    var coor = "The mouse is at: (" + x + "," + y + ")";
-    console.log(coor);
+function init() {
+    const rect = document.querySelector('svg > rect');
+    console.log(rect);
+    const circle = document.querySelector('svg > circle');
+    console.log(circle);
+
+    window.addEventListener('mouseup', (e) => {
+        // pick a random color between #000000 and #FFFFFF
+        const color = Math.round(Math.random() * 0xFFFFFF);
+        const fill = '#' + color.toString(16).padStart(6,'0');
+
+        // apply color to the element that is clicked
+        e.target.style.fill = fill
+    });
+
+    rect.addEventListener("mousemove", function(event) {
+        myFunction(event);
+    });
+
+    circle.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log(event);
+        circle.setAttributeNS(null, 'r', 40);
+    });
+
+    function myFunction(e) {
+        let x = e.clientX;
+        let y = e.clientY;
+        let coor = "The mouse is at: (" + x + "," + y + ")";
+        console.log(coor);
+    }
 }
