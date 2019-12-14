@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Document</title>
+    <link href="login.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.js"></script>
+</head>
+
+<body>
+<div id="particles-js"></div>
+<div class="content" id="content" >
+    <form>
+        <div class="form-group">
+            <span style="color:white">Full Name (Optional)</span>
+            <input type="text" id="fullname" placeholder="Enter Full Name" />
+        </div>
+        <div class="form-group">
+            <span style="color:white">Email</span>
+            <input type="text" id="email" placeholder="Enter Email Id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$"
+                   title="Please enter a valid email id" />
+        </div>
+        <div class="form-group">
+            <span style="color:white">Username</span>
+            <input type="text" id="username" placeholder="Enter Full Name" required pattern="^[a-zA-Z0-9]+$" title= "Username must only contain alphanumeric characters"/>
+        </div>
+        <div class="form-group">
+            <span style="color:white">Password</span>
+            <div class="input-icons">
+                <i id="pass-status" class="fa fa-eye" aria-hidden="true"></i>
+                <input type="password" id="password" placeholder="Enter Password" required
+                       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number."/>
+            </div>
+            <div class="pdwStrength"><br>
+                <i id="password-strength-text" style="color:white" class="pwdTxt" aria-hidden="true"></i>
+                <meter max="4" id="password-strength"></meter>
+            </div>
+            <script type="text/javascript">
+            </script>
+        </div>
+        <div class="register" >
+            <input type="submit" value="Register"/>
+            <input type="submit" name="signup_submit" value="Log in" />
+        </div>
+    </form>
+</div>
+
+
+<div class="register">
+    <div class="form-popup" id="myForm">
+        <div id="login-box">
+            <div class="left">
+                <h1>Log In</h1>
+
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password" placeholder="Password" />
+
+                <input type="submit" value="Cancel" />
+            </div>
+
+            <div class="right"><br><br>
+                <button class="social-signin facebook">Log in with facebook</button>
+                <button class="social-signin google">Log in with Google+</button>
+            </div>
+            <div class="or">OR</div>
+        </div>
+    </div>
+</div>
+
+<script src="login.js"></script>
+</body>
+
+</html>

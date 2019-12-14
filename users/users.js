@@ -35,14 +35,16 @@ function init() {
     const sortState = sortStates[prop];
     console.log(prop, th, sortState);
 
-    th.addEventListener('click', () => {
-      console.log('clicked');
-      const newSortState = !sortStates[prop];
-      sortStates[prop] = newSortState;
-      const newUsersArr = sortBy(users, prop, newSortState);
-      renderUsers(newUsersArr);
-      th.querySelector('span').innerHTML = newSortState ? '(asc)' : '(desc)';
-    });
+    const thClickHandler = () => {
+        // console.log('clicked');
+        const newSortState = !sortStates[prop];
+        sortStates[prop] = newSortState;
+        const newUsersArr = sortBy(users, prop, newSortState);
+        renderUsers(newUsersArr);
+        th.querySelector('span').innerHTML = newSortState ? '(asc)' : '(desc)';
+    };
+
+    th.addEventListener('click', thClickHandler);
   });
 }
 
