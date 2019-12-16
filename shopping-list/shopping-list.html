@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>DOM Events - Shopping List</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+		  crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Oswald:400,600|Pacifico" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="shopping-list.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<body>
+<div id="particles-js"></div>
+<div class="wrapper">
+	<header>
+        <h1><i class="fas fa-shopping-basket fa_custom"></i> Shopping List</h1>
+
+        <div class="borderBottom">
+            <div class="borderColor1"></div>
+            <div class="borderColor2"></div>
+            <div class="borderColor3"></div>
+        </div>
+	</header>
+	<input type="text" name="" id="userinput" placeholder="enter items">
+	<button id="enter">Enter</button>
+	<button id="clear">Clear List</button>
+	<section>
+		<div class="background-list" id="ulHook">
+			<ul>
+				<div class="li-wrapper">
+					<li>Milk</li>
+					<div class="div"></div>
+				</div>
+
+				<div class="li-wrapper">
+					<li>Yogurt</li>
+					<div class="div"></div>
+				</div>
+
+				<div class="li-wrapper">
+					<li>Fruits</li>
+					<div class="div"></div>
+				</div>
+
+				<div class="li-wrapper">
+					<li>Coffee Table</li>
+					<div class="div"></div>
+				</div>
+
+				<div class="li-wrapper">
+					<li>Roomba Vacuum Cleaner</li>
+					<div class="div"></div>
+				</div>
+
+				<div class="li-wrapper">
+					<li>Towels</li>
+					<div class="div"></div>
+				</div>
+
+			</ul>
+		</div>
+	</section>
+</div>
+<script type="text/javascript" src="shopping-list.js"></script>
+</body>
+
+</html>

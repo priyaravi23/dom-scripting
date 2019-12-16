@@ -13,13 +13,14 @@ document.addEventListener('readystatechange', function () {
 });
 
 function init() {
-  let inputs = document.querySelectorAll('.create-user input');
-  let button = document.querySelector('.create-user button');
-  // querySelectorAll returns a NodeList[] NOT an ARRAY
-  let listHeaders = Array.from(document.querySelectorAll('.list-users th'));
+  const inputs = document.querySelectorAll('.create-user input');
+  const create = document.getElementById('create');
+  const clear = document.getElementById('clear');
+  const tbody = document.querySelector('tbody');
+  const listHeaders = Array.from(document.querySelectorAll('.list-users th'));
 
 
-  button.addEventListener('click', () => {
+    create.addEventListener('click', () => {
     let user = {
       firstName: inputs[0].value,
       lastName: inputs[1].value,
@@ -29,6 +30,11 @@ function init() {
     renderUsers(users);
   });
 
+    clear.addEventListener('click', () => {
+        while (tbody.hasChildNodes()) {
+            tbody.removeChild(tbody.lastChild);
+        }
+    });
 
   listHeaders.forEach((th, index) => {
     const prop = props[index];

@@ -33,7 +33,10 @@ const model = {
         }
     },
     createButton: {
-        selector: '.create-user button'
+        selector: '.create-user #create'
+    },
+    clearButton: {
+        selector: '.create-user #clear'
     },
     users: new Proxy({}, usersHandler)
 };
@@ -41,12 +44,16 @@ const model = {
 
 // create controller data (Components, API calls, connectors etc)
 const createUserControllerInit = () => {
-    const button = document.querySelector(model.createButton.selector);
+    const create = document.querySelector(model.createButton.selector);
+    const clear = document.querySelector(model.clearButton.selector);
+    const tbody = document.querySelector('tbody');
+
     const props = Object.keys(model.props); // ['firstName', 'lastName', 'dateOfBirth']
     const inputElements = props
         .map(propName => document.querySelector(model.props[propName].selector));
     console.log(inputElements);
-    button.addEventListener('click', () => {
+
+    create.addEventListener('click', () => {
         const user = props.reduce((obj, propName, index) => {
             obj[propName] = inputElements[index].value;
             return obj;
@@ -59,6 +66,12 @@ const createUserControllerInit = () => {
             console.log('Updated the users array: ', model.users);
         }
     });
+
+    clear.addEventListener('click', () => {
+        while (tbody.hasChildNodes()) {
+            tbody.removeChild(tbody.lastChild);
+        }
+    })
 };
 const sortUsersControllerInit = () => {};
 const initController = () => {
