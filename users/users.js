@@ -28,6 +28,9 @@ function init() {
     };
     users.push(user);
     renderUsers(users);
+
+    createDeleteButtonIcon();
+    deleteParentNodeOnClick();
   });
 
     clear.addEventListener('click', () => {
@@ -94,12 +97,44 @@ function renderUsers(users) {
 
 function createTrElement(user) {
   const tr = document.createElement('tr');
+  const divElement = document.createElement('div');
+  divElement.classList.add('div');
 
   Object.values(user).forEach(val => {
     const td = document.createElement('td');
     td.innerHTML = val;
     tr.appendChild(td);
+    tr.appendChild(divElement);
   });
 
   return tr;
+}
+
+function createDeleteButtonIcon() {
+    const tbody = document.querySelector('tbody');
+    const tr = tbody.children.length;
+
+    for (let i = 0; i < tr; i++) {
+        const createDeleteButton = document.createElement('i');
+        const createDiv = document.getElementsByClassName('div');
+        console.log(createDiv);
+        createDeleteButton.classList.add('fa', 'fa-trash');
+        createDiv[i].appendChild(createDeleteButton);
+    }
+}
+
+function deleteNodeOnClick(e) {
+    const trash = document.querySelectorAll('i');
+    for (let i = 0; i < trash.length; i++) {
+        this.parentNode.parentNode.remove();
+    }
+}
+
+function deleteParentNodeOnClick() {
+    const deleteButton = document.getElementsByTagName('i');
+    console.log(deleteButton);
+
+    for (var i = 0; i < deleteButton.length; i++) {
+        deleteButton[i].addEventListener('click', deleteNodeOnClick);
+    }
 }
