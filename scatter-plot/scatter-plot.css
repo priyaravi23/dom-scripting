@@ -1,0 +1,12 @@
+.chart {
+    background-color: lightgrey;
+    border: 1px solid black;
+    width: 800px;
+    height: 700px;
+}
+
+.ball {
+    fill-opacity: 0.5;
+    fill: #F14383;
+    stroke-width: 2px;
+}
