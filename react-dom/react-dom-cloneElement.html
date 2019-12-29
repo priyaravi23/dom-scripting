@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>React.cloneElement to Extend Functionality of Children Components</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+
+<script type="text/babel">
+
+    class Render extends React.Component {
+        render() {
+            return (
+                <Buttons>
+                    <button value="A">A</button>
+                    <button value="B">B</button>
+                    <button value="C">C</button>
+                </Buttons>
+            )
+        }
+    }
+
+    class Buttons extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                selected: 'None'
+            };
+        }
+
+        selectItem(itemSelected) {
+            this.setState({
+                selected: itemSelected
+            })
+        }
+
+        render() {
+            let fn = child =>
+                React.cloneElement(child, {
+                    onClick: this.selectItem.bind(this, child.props.value)
+                });
+
+            let items = React.Children.map(this.props.children, fn);
+
+            return (
+                <div>
+                    <h2>You have selected: {this.state.selected}</h2>
+                    {items}
+                </div>
+            )
+        }
+    }
+
+    const element = <Render />;
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    )
+
+</script>
+</body>
+</html>

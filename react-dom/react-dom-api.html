@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>Use map to Create React Components from Arrays of Data</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+
+<script type="text/babel">
+
+    class RestAPI extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                items: [],
+                filter: null,
+                err: null
+            };
+
+            this.filterOnInput = this.filterOnInput.bind(this);
+        }
+
+        componentDidMount() {
+            this.getCharacterNames();
+        }
+
+        getCharacterNames() {
+            fetch( 'https://swapi.co/api/people/?format=json' )
+                .then( response => response.json() )
+                .then( data => this.setState({
+                    items: data.results
+                }))
+        }
+
+        filterOnInput(e) {
+            this.setState({
+                filter: e.target.value
+            })
+        }
+
+        render() {
+            let items = this.state.items;
+
+            if (this.state.filter) {
+                items = items.filter( item =>
+                    item.name.toLowerCase()
+                        .includes(this.state.filter.toLowerCase()))
+            }
+
+            return (
+                <div>
+                    <input type="text"
+                           onChange={this.filterOnInput}/>
+                    {
+                        items.map(item =>
+                            <Person key={item.name} person={item} />
+                        )
+                    }
+                </div>
+            )
+        }
+
+    }
+
+    const Person = (props) => <h4>{props.person.name}</h4>;
+
+    const element = <RestAPI />;
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    )
+
+</script>
+</body>
+</html>

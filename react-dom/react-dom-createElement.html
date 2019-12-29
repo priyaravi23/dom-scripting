@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>React's createElement API and JSX</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.3.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+<script type="text/babel">
+    const rootElement = document.getElementById('root');
+
+    /**
+     const elem = document.createElement('div');
+     elem.textContent = 'Hello World';
+     elem.className = 'container';
+     rootElement.appendChild(elem);
+     */
+
+    const element = React.createElement('div', {
+        className: 'container',
+        children: ['Hello World', ' ', 'Goodbye World']
+        },
+        // 'Welcome' // text content
+    );
+
+    /**
+    const content = 'Hello World';
+    const myClassName = 'container';
+    const elem = <div className={myClassName}>{(() => content)()}</div>
+     **/
+
+    const props = {
+        className: 'container',
+        children: 'Hello World'
+    };
+
+    const elem = <div {...props}>Goodbye World</div>;
+
+    ReactDOM.render(elem, rootElement);
+    console.log(elem);
+
+</script>
+</body>
+</html>

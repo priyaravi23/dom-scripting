@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>Understand React.Children Utilities</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+
+<script type="text/babel">
+
+    class Render extends React.Component {
+        render() {
+            return (
+                <Parent>
+                    <div className="Child_A"></div>
+                    <div className="Child_B"></div>
+                    <div className="Child_C"></div>
+                </Parent>
+            )
+        }
+    }
+
+    class Parent extends React.Component {
+        render() {
+            console.log(this.props.children);
+
+            let items = React.Children
+               .forEach(this.props.children,
+               child => console.log(child.props.className));
+
+            // let items = React.Children.toArray(this.props.children);
+            // let items = React.Children.only(this.props.children); // more than 1 child will throw an error
+
+            console.log(items);
+            return null
+        }
+    }
+
+    const element = <Render />;
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    )
+
+</script>
+</body>
+</html>

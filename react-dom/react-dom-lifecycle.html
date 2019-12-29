@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <title>React Component Lifecycle Methods</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+
+<script type="text/babel">
+
+    /**
+     * Create a stateful counter component called Counter that renders a button with a number that represents
+     * the times that button has been clicked. When the button is clicked, the count should be incremented by one.
+     */
+
+    class Counter extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                count: 0,
+                username: ''
+            };
+
+            /**
+             * Arrow functions have their own lexical this. When we use arrow functions, we don't have to
+             * manually bind them to a class
+             */
+
+            this.increment = this.increment.bind(this);
+            this.updateUsername = this.updateUsername.bind(this);
+        }
+
+        componentWillMount() {
+            console.log('componentWillMount')
+        }
+
+        componentDidMount(){
+            console.log('componentDidMount')
+        }
+        componentWillUnmount(){
+            console.log('componentWillUnmount')
+        }
+
+        /**
+         * You cannot always trust this.state to hold the correct state immediately after calling setState(),
+         * as it is always equal to the state rendered on the screen.
+         */
+
+        increment() {  // Pass a function when you want to update state multiple times
+            this.setState((state) => ({
+                count: state.count + 1
+            }))
+        };
+
+        updateUsername(event) {
+            console.log(event);
+            this.setState({
+                username: event.target.value
+            })
+        };
+
+        render() {
+            return (
+                <div>
+                    <p>
+                        { /* How do you add interactivity when a component is clicked ? */ }
+                        <button onClick={this.increment}>
+                            {this.state.count}
+                        </button>
+                    </p>
+
+                    <p>
+                        <input onBlur={this.updateUsername} />
+                    </p>
+                </div>
+            )
+        }
+    }
+
+    class Wrapper extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.mount = this.mount.bind(this);
+            this.unmount = this.unmount.bind(this);
+        }
+
+        mount() {
+            ReactDOM.render(<Counter />, document.getElementById('a'))
+        }
+
+        unmount() {
+            ReactDOM.unmountComponentAtNode(document.getElementById('a'))
+        }
+
+        render() {
+            return (
+                <div>
+                    <button onClick={this.mount}>Mount</button>
+                    <button onClick={this.unmount}>UnMount</button>
+                    <div id="a"></div>
+                </div>
+            )
+        }
+    }
+
+    const element = <Wrapper />;
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    )
+
+</script>
+</body>
+</html>

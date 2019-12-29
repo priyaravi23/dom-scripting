@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title>Validate Custom React Component Props with PropTypes</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+
+<script type="text/babel">
+    /**
+     * How could you validate that the firstName and lastName props are each a string (and required)
+     * using PropTypes from the prop-types package?
+     */
+
+    // class SayHello extends React.Component {
+    //     static propTypes = {
+    //         firstName: PropTypes.string.isRequired,
+    //         lastName: PropTypes.string.isRequired
+    //     };
+    //
+    //     render() {
+    //         const {firstName, lastName} = this.props;
+    //
+    //         return (
+    //             <div>
+    //                 Hello {firstName} {lastName}!
+    //             </div>
+    //         )
+    //     }
+    // }
+
+    function SayHello(props) {  // stateless function cannot have states
+        return (
+            <div>
+                {(props.firstName && props.lastName) ? (
+                    <div> Hello {props.firstName} {props.lastName}! </div>
+                    ) :
+                    <div> First and Last names are not available...</div>
+                }
+            </div>
+        )
+    }
+
+    SayHello.propTypes = {
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired
+    };
+
+    const element = <SayHello firstName="Priya" lastName="Ravi"/>;
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    )
+</script>
+</body>
+</html>

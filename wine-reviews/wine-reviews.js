@@ -19,8 +19,9 @@ document.addEventListener('readystatechange', () => {
 });
 
 function init() {
+    // Where we're fetching data from
     const promise = fetch('./wine-reviews.json');
-
+    // We get the API response and receive data in JSON format...
     promise.then((res) => {
         if (res.ok) {
             res.json().then((data) => {
@@ -42,6 +43,7 @@ function init() {
 const getGetHeadingsFromData = reviewsArr => {
     const set = new Set();
     reviewsArr.forEach(review => {
+        review.points = +review.points; // points is coming back as a string so convert to a Number
         Object.keys(review).forEach(prop => set.add(prop));
     });
     return [...set];
