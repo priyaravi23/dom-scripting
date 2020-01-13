@@ -163,7 +163,7 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
     width: 300px;
     height: 400px;
     background-size: cover;
-    background: url('./img.jpg') center;
+    background: url('img.jpg') center;
     border-radius: 0 2px 2px 0;
 }
 
