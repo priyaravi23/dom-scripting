@@ -76,3 +76,13 @@ DOM Manipulation in Vanilla JavaScript
 - legal footer: three columns where the first two columns are positioned to the left, while the last column to the right of the screen.
 
 ![](images/sticky-footer.png) 
+
+### CSS Holy Grail Layout
+- Sidebars and main content should have the same height, regardless of which element is the tallest,
+- Sidebars should have fixed width and main content fluid width,
+- The center column (main content) should appear first in the HTML source,
+- If the content is sparse, the footer should stay to the bottom of the page,
+- The layout should be responsive, all the sections should collapse into one column on smaller viewports
+- https://alligator.io/css/css-grid-holy-grail-layout/
+
+![](images/holy-grail.png)
