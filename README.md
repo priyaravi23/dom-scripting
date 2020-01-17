@@ -65,3 +65,14 @@ DOM Manipulation in Vanilla JavaScript
 - Filter data based on user input 
 
 ![](images/wine-reviews.png)
+
+### Sticky Footer
+- Keeping the footer at the bottom with CSS Flexbox
+- https://css-tricks.com/couple-takes-sticky-footer/
+
+#### Footer Structure
+- main footer: four columns, with a newsletter signup form in the last column,
+- social footer: six social icons centered on the page (this level won’t wrap),
+- legal footer: three columns where the first two columns are positioned to the left, while the last column to the right of the screen.
+
+![](images/sticky-footer.png) 
