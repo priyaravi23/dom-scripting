@@ -66,6 +66,10 @@ DOM Manipulation in Vanilla JavaScript
 
 ![](images/wine-reviews.png)
 
+### Todo List 
+
+![](images/todo.png)
+
 ### Sticky Footer
 - Keeping the footer at the bottom with CSS Flexbox
 - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
@@ -90,4 +94,5 @@ DOM Manipulation in Vanilla JavaScript
 
 ### CSS Grid Layout Using Bootstrap
 - https://css-tricks.com/snippets/css/complete-guide-grid/
+
 ![](images/css-grid.png)
