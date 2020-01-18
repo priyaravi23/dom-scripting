@@ -68,6 +68,7 @@ DOM Manipulation in Vanilla JavaScript
 
 ### Sticky Footer
 - Keeping the footer at the bottom with CSS Flexbox
+- https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - https://css-tricks.com/couple-takes-sticky-footer/
 
 #### Footer Structure
@@ -86,3 +87,7 @@ DOM Manipulation in Vanilla JavaScript
 - https://alligator.io/css/css-grid-holy-grail-layout/
 
 ![](images/holy-grail.png)
+
+### CSS Grid Layout Using Bootstrap
+- https://css-tricks.com/snippets/css/complete-guide-grid/
+![](images/css-grid.png)

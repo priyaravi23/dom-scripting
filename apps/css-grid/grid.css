@@ -1,0 +1,334 @@
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust:     100%;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    display: block;
+    border: 0;
+    width: 100%;
+    height: auto;
+}
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar */
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    color: #404040;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    margin: 0;
+    padding: 1em 0;
+}
+
+p {
+    margin: 0;
+    padding: 1em 0;
+}
+
+/* Promo section */
+
+.logo,
+.site-title {
+    text-align: center;
+}
+
+.logo {
+    font-size: 8em;
+}
+
+.site-title {
+    margin-top: -1em;
+    margin-bottom: 3em;
+}
+
+/* Splash section */
+
+.splash {
+    background: #FFF6E5;
+    padding-bottom: 2em;
+}
+
+.splash-content {
+    padding: 1.5em;
+}
+
+@media screen and (min-width: 600px) {
+    .splash-text {
+        columns: 2;
+        column-gap: 2em;
+    }
+
+    .splash-text p {
+        padding-top: 0;
+    }
+}
+
+/* Buckets section */
+
+.buckets {
+    padding: 2em 1em 1em;
+    background: #3E454C;
+}
+
+.buckets ul {
+    margin: 0;
+    padding: 0;
+}
+
+.buckets li {
+    margin-bottom: 1em;
+    background: white;
+    list-style-type: none;
+}
+
+.bucket {
+    padding: 1.5em;
+}
+
+/* More section */
+
+.more {
+    padding: 2em;
+    background: #FFF6E5;
+}
+
+/* Twins section */
+
+.twin {
+    padding: 1em;
+    background: #3E454C;
+    color: white;
+}
+
+.twin:last-of-type {
+    background: #3E454C;
+}
+
+/* Colophon section */
+.colophon {
+    padding: 2em;
+    background: hsl(0, 0%, 10%);
+    color: white;
+    text-align: center;
+}
+
+.colophon a {
+    color: white;
+}
+
+.colophon a:hover,
+.colophon a:focus {
+    border-bottom: 1px solid white;
+}
+
+/*--------------------------------------------------------------
+If no grid support, limit width to 50em and center align
+--------------------------------------------------------------*/
+@supports not (display: grid) {
+    .grid {
+        max-width: 50em;
+        margin: 0 auto;
+    }
+}
+
+/*--------------------------------------------------------------
+Use flex to create a three-bucket layout 
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 700px) {
+    @supports (display: flex) {
+
+        .buckets ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .buckets li {
+            width: 31%;
+        }
+
+    }
+}
+
+/*--------------------------------------------------------------
+CSS Grid layout for wider screens, when browser supports grid:
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 600px) {
+    /* Layout with CSS Grid */
+    @supports (display: grid) {
+
+        /* Four-column layout. Two center columns have a total max width of 50em: */
+        .grid {
+
+            display: grid;
+            grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+        }
+
+        /* Center items by placing them in the two center columns: */
+        .splash-content,
+        .more-content,
+        .buckets ul {
+            grid-column: 2/4;
+        }
+
+        /* Use automatic grid placement + span to let each item span two columns:*/
+        .twin,
+        .colophon aside {
+            grid-column: span 2;
+        }
+
+    }
+}
+
+/*FOOTER*/
+
+footer {
+    background: -webkit-linear-gradient(59deg, #3E454C, #3E454C);
+    background: linear-gradient(59deg, #3E454C, #3E454C);
+}
+
+footer a {
+    color: #fff;
+    font-size: 14px;
+    transition-duration: 0.2s;
+}
+
+footer a:hover {
+    color: #FA944B;
+    text-decoration: none;
+}
+
+.copy {
+    font-size: 12px;
+    padding: 10px;
+    border-top: 1px solid #FFFFFF;
+}
+
+.footer-middle {
+    padding-top: 2em;
+    color: white;
+}
+
+/* footer social icons */
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0;
+}
+
+ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+}
+
+
+/* footer social icons */
+
+.social-network a.icoFacebook:hover {
+    background-color: #3B5998;
+}
+
+.social-network a.icoLinkedin:hover {
+    background-color: #007bb7;
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoLinkedin:hover i {
+    color: #fff;
+}
+
+.social-network a.socialIcon:hover,
+.socialHoverClass {
+    color: #44BCDD;
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.social-circle i {
+    color: #595959;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.social-network a {
+    background-color: #F9F9F9;
+}
