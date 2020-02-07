@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Chewy');
+* {
+    box-sizing: border-box;
+    font-family: 'quicksand', 'sans-serif';
+}
+
+html,
+body {
+    background: #E0E6ED;
+    width: 100%;
+    height: 100%;
+    font-family: 'quicksand', 'sans-serif';
+}
+
+h1 {
+    font-size: 50px;
+    color: #E85D75;
+    font-family: 'Chewy', cursive;
+}
+
+.main-container h1 {
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-input {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.input-container {
+    position: relative;
+    margin-top: 8px;
+}
+
+.input-container:first-child {
+    margin-top: 0;
+}
+
+.remove-container {
+    position: absolute;
+    right: -22px;
+    top: 0;
+    line-height: 35px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.main-container {
+    width: 200px;
+    position: relative;
+    top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: perspective(1px) translateY(-50%);
+}
+
+.plus-container {
+    display: block;
+    margin-top: 10px;
+}
+
+.fa.fa-plus,
+.fa.fa-times {
+    color: #C0C8D2;
+    cursor: pointer;
+}
+
+.fa.fa-plus:hover,
+.fa.fa-times:hover {
+    color: #E85D75;
+}

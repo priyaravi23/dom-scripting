@@ -33,16 +33,6 @@ DOM Manipulation in Vanilla JavaScript
 
 ## Apps 
 
-### Login Form 
-- Implement a form to login and register user info 
-- Validate user info
-- Implement password strength
-- Add functionality to show/hide password
-- Use Particles.js for animation effects
-
-![](images/login.png) 
-![](images/register.png)
-
 ### Users App
 - Add a user (firstName, lastName, dateOfBirth)
 - Sort users by name / date of birth
@@ -51,13 +41,6 @@ DOM Manipulation in Vanilla JavaScript
 
 ![](images/users.png)
 
-### Shopping List
-- Add items to a list
-- Delete individual items from the list
-- Clear the list
-
-![](images/shopping-list.png)
-
 ### Wine Reviews
 - Make an API call to fetch data
 - Render the data in the form of a table on the UI 
@@ -65,10 +48,6 @@ DOM Manipulation in Vanilla JavaScript
 - Filter data based on user input 
 
 ![](images/wine-reviews.png)
-
-### Todo List 
-
-![](images/todo.png)
 
 ### Sticky Footer
 - Keeping the footer at the bottom with CSS Flexbox
